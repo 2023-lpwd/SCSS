@@ -1,0 +1,19 @@
+$colors: ('yellow', rgb(235, 235, 34)), ('blue', rgb(19, 19, 97)),
+  ('brown', rgb(78, 15, 15)), ('green', rgb(18, 194, 32)),
+  ('violet', rgb(109, 18, 194));
+
+.dots {
+  &__item {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: gray;
+    display: inline-block;
+    margin: 0 0.5rem;
+    @each $color in $colors {
+      &.-#{nth($color, 1)} {
+        background: #{nth($color, 2)};
+      }
+    }
+  }
+}

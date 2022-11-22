@@ -1,0 +1,79 @@
+$nav-anim-delay: 0.25s;
+$link-length: 3;
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate(-100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+}
+
+.nav {
+  $this: &;
+  @include small-down() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    transform: translateX(-100%);
+  }
+  &.-open {
+    animation-name: fadeInLeft;
+    #{$this}__item {
+      animation-name: fadeInLeft;
+      @for $i from 1 through $link-length {
+        &:nth-of-type(#{$i}) {
+          animation-delay: $i * $nav-anim-delay;
+        }
+      }
+    }
+  }
+  &.-close {
+    animation-name: fadeOutRight;
+    animation-delay: ($link-length + 1) * $nav-anim-delay;
+    #{$this}__item {
+      animation-name: fadeOutRight;
+      @for $i from 1 through $link-length {
+        &:nth-of-type(#{$i}) {
+          animation-delay: $i * $nav-anim-delay;
+        }
+      }
+    }
+  }
+
+  &__list {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    padding: rem(16);
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+  }
+}

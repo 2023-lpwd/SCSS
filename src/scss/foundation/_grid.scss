@@ -1,0 +1,49 @@
+@use 'sass:math';
+$maxColumns: 12;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@function calculate-width($number) {
+  @return math.div($number, $maxColumns) * 100%;
+}
+
+@for $i from 1 through $maxColumns {
+  .col-#{$i} {
+    flex-basis: calculate-width($i);
+    max-width: calculate-width($i);
+  }
+}
+
+@include medium-up() {
+  @for $i from 1 through $maxColumns {
+    .col-md-#{$i} {
+      flex-basis: calculate-width($i);
+      max-width: calculate-width($i);
+    }
+  }
+}
+
+@include large-up() {
+  @for $i from 1 through $maxColumns {
+    .col-l-#{$i} {
+      flex-basis: calculate-width($i);
+      max-width: calculate-width($i);
+    }
+  }
+}
+@include x-large-up() {
+  @for $i from 1 through $maxColumns {
+    .col-xl-#{$i} {
+      flex-basis: calculate-width($i);
+      max-width: calculate-width($i);
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@mixin font-size($fontsize, $lineheight: 'auto') {
+  font-size: rem($fontsize);
+  @if $lineheight == 'auto' {
+    line-height: rem($fontsize + 2);
+  } @else {
+    line-height: rem($lineheight);
+  }
+}
+
+$small: 460px;
+$medium: 640px;
+$large: 960px;
+$x-large: 1200px;
+
+@mixin x-small-only() {
+  @media screen and (max-width: ($small - 1)) {
+    @content;
+  }
+}
+
+@mixin small-down() {
+  @media screen and (max-width: ($medium - 1px)) {
+    @content;
+  }
+}
+@mixin small-up() {
+  @media screen and (min-width: $small) {
+    @content;
+  }
+}
+@mixin small-only() {
+  @media screen and (min-width: $small) and (max-width: ($medium - 1px)) {
+    @content;
+  }
+}
+
+@mixin medium-up() {
+  @media screen and (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin medium-only() {
+  @media screen and (min-width: $medium) and (min-width: ($large - 1px)) {
+    @content;
+  }
+}
+
+@mixin large-up() {
+  @media screen and (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin large-only() {
+  @media screen and (min-width: $large) and (max-width: (x-large - 1px)) {
+    @content;
+  }
+}
+
+@mixin x-large-up() {
+  @media screen and (min-width: $x-large) {
+    @content;
+  }
+}
+
+@mixin background-image($urlx1, $urlx2) {
+  background-image: url($urlx1);
+  @media only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+    background-image: url($urlx2);
+  }
+}

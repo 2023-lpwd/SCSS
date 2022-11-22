@@ -1,0 +1,21 @@
+
+.button{
+    background : $primary-color;
+    color : white;
+    font-size: rem(16);
+    border : 2px solid $primary-color;
+    display: inline-block;
+    padding : rem(8) rem(16);
+    border-radius : 5px;
+    text-decoration: none;
+    font-family: $text-font-family;
+    cursor: pointer;
+}
+.button:hover{
+    color : $primary-color;
+    background : white;
+}
+
+.button.-secondary{
+    background : $secondary-color;
+}

@@ -1,0 +1,23 @@
+// Foundations
+@import './foundation/variables';
+@import './foundation/functions';
+@import './foundation/mixins';
+@import './foundation/normalize';
+@import './foundation/grid';
+
+// Elements
+@import './elements/buttons';
+@import './elements/typography';
+@import './elements/form';
+
+// Components
+@import './components/nav';
+@import './components/product';
+@import './components/dots';
+
+//layout
+@import './layout/section';
+
+body {
+  background: white;
+}

@@ -1,0 +1,99 @@
+/* Sélecteurs par type */
+div{
+    color : blue;
+}
+p{
+    color :red;
+}
+
+/* Sélecteurs : plusieurs éléments*/ 
+p, h1 {
+    color :red;
+}
+
+/* Sélecteur universel */
+* {
+    color : red;
+}
+
+/* Sélecteur de classe */
+.red-text{
+    color : red;
+}
+.big-text{
+    font-size: 32px;
+}
+
+/* Sélecteur d'ID */
+#green-text{
+    color : green;
+}
+
+/* Sélecteur descendants */
+nav {
+    a {
+        color : green;
+    }
+}
+
+/* Sélecteur enfants */
+nav{
+    &>ul{
+        list-style: none;
+    }
+}
+
+/* Sélecteur suivant */
+h1 {
+    &+ p{
+        color : #bbb;
+    }
+}
+
+
+/*Sélecteur de tous les suivants */
+h1 {
+    & ~ p{
+        color : #bbb;
+    }
+}
+
+
+/* Sélecteur via attribut */
+a[href="/accueil.html"]{
+    color : red;
+}
+
+
+/*sélecteur pseudo classe */
+
+/* premier */
+p{
+    &:first-of-type{
+        color : red;
+    }
+}
+
+/* 3eme type ou x types  */
+
+p{
+    &:nth-of-type(3){
+        color : red;
+    }
+    
+}
+
+/* nb impaire */
+p{
+    &:nth-of-type(2n){
+        color : red;
+    }
+}
+
+/* nb impaire */
+p{
+    &:nth-of-type(2n + 1){
+        color : red;
+    }
+}
+
